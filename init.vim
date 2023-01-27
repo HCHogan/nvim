@@ -1,3 +1,32 @@
+" __  ____   __  _   ___     _____ __  __ ____   ____
+"|  \/  \ \ / / | \ | \ \   / /_ _|  \/  |  _ \ / ___|
+"| |\/| |\ V /  |  \| |\ \ / / | || |\/| | |_) | |
+"| |  | | | |   | |\  | \ V /  | || |  | |  _ <| |___
+"|_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|
+
+" Author: @HCHogan
+" ==================== Auto load for first time uses ====================
+" if empty(glob($HOME.'/.config/nvim/autoload/plug.vim'))
+	" silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
+				" "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	" autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
+" 
+" let g:nvim_plugins_installation_completed=1
+" if empty(glob($HOME.'/.config/nvim/plugged/wildfire.vim/autoload/wildfire.vim'))
+	" let g:nvim_plugins_installation_completed=0
+	" autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
+" 
+"  Create a _machine_specific.vim file to adjust machine specific stuff, like python interpreter location 
+" let has_machine_specific_file = 1
+" if empty(glob('~/.config/nvim/_machine_specific.vim'))
+	" let has_machine_specific_file = 0
+	" silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
+" endif
+" source $HOME/.config/nvim/_machine_specific.vim
+
+" ===================== Editor Behavior ===========================
 set encoding=utf-8
 let mapleader=" "
 syntax on
@@ -36,6 +65,18 @@ map <LEADER>k <C-w>k
 
 noremap = nzz
 noremap - Nzz
+
+nmap <silent> gD :tab sp<CR><Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+
+nmap tt :CocCommand explorer<CR>
+nmap tt :CocCommand explorer<CR>
+" coc-translator
+nmap ts <Plug>(coc-translator-p)
+" Remap for do codeAction of selected region
 
 set ts=4
 set softtabstop=4
@@ -84,6 +125,14 @@ let g:coc_global_extensions = ['coc-json',
     \ 'coc-sourcekit',
     \ 'coc-java',
     \ 'coc-go',
+    \ 'coc-clangd',
+    \ 'coc-gitignore',
+    \ 'coc-yaml',
+    \ 'coc-html',
+    \ 'coc-json',
+    \ 'coc-translator',
+    \ 'coc-css',
+    \ 'coc-prettier',
     \ 'coc-explorer']
 
 set updatetime=300
