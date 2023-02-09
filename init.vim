@@ -50,7 +50,6 @@ noremap L 5l
 
 map S :w<CR>
 map Q :q<CR>
-map R :source $MYVIMRC
 map s <nop>
 
 map sl :set splitright<CR>:vsplit<CR>
@@ -62,6 +61,8 @@ map <LEADER>l <C-w>l
 map <LEADER>h <C-w>h
 map <LEADER>j <C-w>j
 map <LEADER>k <C-w>k
+
+map tn :tabnew<CR>
 
 noremap = nzz
 noremap - Nzz
@@ -79,16 +80,20 @@ nmap ts <Plug>(coc-translator-p)
 " Remap for do codeAction of selected region
 
 set ts=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
+set autoindent 
+set cindent  
+set shiftwidth=4 
+set softtabstop=4 
+set tabstop=4 
 set autoindent
 
-call plug#begin('/home/hank/.config/nvim/plugged')
+
+call plug#begin('/Users/hank/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 "  coc.nvim
@@ -122,7 +127,7 @@ let g:coc_global_extensions = ['coc-json',
     \ 'coc-git',
     \ 'coc-pairs',
     \ 'coc-lists',
-    \ 'coc-sourcekit',
+	\ 'coc-sourcekit',
     \ 'coc-java',
     \ 'coc-go',
     \ 'coc-clangd',
@@ -149,18 +154,18 @@ nnoremap <silent> <LEADER>h :call <SID>show_documentation()<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 "  =========
 
-color snazzy
+colorscheme tokyonight-night
 let g:lightline = {'colorscheme': 'snazzy', }
 let g:SnazzyTransparent = 1
 
 if exists("g:neovide")
 
 let g:neovide_cursor_vfx_mode = "pixiedust"
-set guifont =JetBrains\ Mono:h12
+set guifont =FiraCode\ Nerd\ Font:h16
 endif
 
 " complierun_on_oneclick
-noremap r :call CompileRunGcc()<CR>
+noremap R :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
