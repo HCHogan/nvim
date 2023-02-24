@@ -63,6 +63,7 @@ map <LEADER>j <C-w>j
 map <LEADER>k <C-w>k
 
 map tn :tabnew<CR>
+map tc :tabclose<CR>
 
 noremap = nzz
 noremap - Nzz
@@ -79,16 +80,14 @@ nmap tt :CocCommand explorer<CR>
 nmap ts <Plug>(coc-translator-p)
 " Remap for do codeAction of selected region
 
-set ts=4
 set autoindent 
-set cindent  
+" set cindent  
 set shiftwidth=4 
 set softtabstop=4 
 set tabstop=4 
-set autoindent
 
 
-call plug#begin('/Users/hank/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'vim-airline/vim-airline'
@@ -122,7 +121,7 @@ endfunction
 let g:coc_global_extensions = ['coc-json',
     \ 'coc-vimlsp',
     \ 'coc-marketplace',
-    \ 'coc-python',
+	\ 'coc-pyright',
     \ 'coc-actions',
     \ 'coc-git',
     \ 'coc-pairs',
@@ -161,7 +160,7 @@ let g:SnazzyTransparent = 1
 if exists("g:neovide")
 
 let g:neovide_cursor_vfx_mode = "pixiedust"
-set guifont =FiraCode\ Nerd\ Font:h16
+set guifont =FiraCode\ Nerd\ Font:h12
 endif
 
 " complierun_on_oneclick
