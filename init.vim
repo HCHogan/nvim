@@ -62,6 +62,11 @@ map <LEADER>h <C-w>h
 map <LEADER>j <C-w>j
 map <LEADER>k <C-w>k
 
+" autocmd map <C-j> j
+" autocmd map <C-k> k
+" autocmd map <C-h> h
+" autocmd map <C-l> l
+
 map tn :tabnew<CR>
 map tc :tabclose<CR>
 
@@ -92,7 +97,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for' : ['markdown', 'vim-plug'] }
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'connorholyday/vim-snazzy'
@@ -170,9 +175,10 @@ let g:lightline = {'colorscheme': 'snazzy', }
 let g:SnazzyTransparent = 1
 
 if exists("g:neovide")
-
-let g:neovide_cursor_vfx_mode = "pixiedust"
-set guifont =FiraCode\ Nerd\ Font:h12
+	let g:neovide_cursor_vfx_mode = "pixiedust"
+	set guifont=FiraCode\ Nerd\ Font:h10
+	" set guifont=FiraCode\ Nerd\ Font:h20
+    " Put anything you want to happen only in Neovide here
 endif
 
 " complierun_on_oneclick

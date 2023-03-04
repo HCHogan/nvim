@@ -26,8 +26,8 @@
         "value": "\uf89f",
         "variable": "\ue71b"
     },
-    "codeLens.enable": true
-    "list.previousKeymap": "<C-k>",
+    "codeLens.enable": true,
+	"semanticTokens.enable": true,
     "list.nextKeymap": "<C-j>",
     //"coc.preferences.formatOnSaveFiletypes": [
     //"javascript",
