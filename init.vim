@@ -110,6 +110,9 @@ Plug 'ravenxrz/DAPInstall.nvim'
 Plug 'ravenxrz/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'gcmt/wildfire.vim'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 "  coc.nvim
@@ -170,7 +173,7 @@ nnoremap <silent> <LEADER>h :call <SID>show_documentation()<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 "  =========
 
-colorscheme tokyonight-night
+colorscheme catppuccin-mocha
 let g:lightline = {'colorscheme': 'snazzy', }
 let g:SnazzyTransparent = 1
 
