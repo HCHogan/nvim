@@ -130,5 +130,8 @@
         "<<": "gitStage",
         ">>": "gitUnstage"
     },
-
+	"rust-analyzer.enable": true,
+	"rust-analyzer.server.path": "/usr/bin/rust-analyzer",
+	"suggest.noselect": false,
+	
 }

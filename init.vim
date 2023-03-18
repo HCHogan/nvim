@@ -156,6 +156,7 @@ let g:coc_global_extensions = ['coc-json',
     \ 'coc-json',
     \ 'coc-translator',
     \ 'coc-css',
+	\ 'coc-rust-analyzer',
     \ 'coc-explorer']
 
 set updatetime=300
