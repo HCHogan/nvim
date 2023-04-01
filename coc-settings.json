@@ -29,6 +29,7 @@
     "codeLens.enable": true,
 	"semanticTokens.enable": true,
     "list.nextKeymap": "<C-j>",
+	"kotlin.languageServer.path": "/usr/bin/kotlin-language-server",
     //"coc.preferences.formatOnSaveFiletypes": [
     //"javascript",
     //"typescript",

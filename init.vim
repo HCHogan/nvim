@@ -69,6 +69,8 @@ map <LEADER>k <C-w>k
 
 map tn :tabnew<CR>
 map tc :tabclose<CR>
+noremap gt :w<CR>:tabnext<CR>
+noremap gT :w<CR>:tabprev<CR>
 
 noremap = nzz
 noremap - Nzz
@@ -84,6 +86,7 @@ nmap tt :CocCommand explorer<CR>
 " coc-translator
 nmap ts <Plug>(coc-translator-p)
 " Remap for do codeAction of selected region
+nmap <F8> :TagbarToggle<CR>
 
 set autoindent 
 " set cindent  
@@ -113,6 +116,10 @@ Plug 'rcarriga/nvim-dap-ui'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/tagbar'
+Plug 'hari-rangarajan/CCTree'
+Plug 'github/copilot.vim'
 
 call plug#end()
 "  coc.nvim
@@ -157,6 +164,10 @@ let g:coc_global_extensions = ['coc-json',
     \ 'coc-translator',
     \ 'coc-css',
 	\ 'coc-rust-analyzer',
+	\ 'coc-phpls',
+	\ 'coc-tsserver',
+	\ 'coc-highlight',
+	\ 'coc-sql',
     \ 'coc-explorer']
 
 set updatetime=300
@@ -186,7 +197,7 @@ if exists("g:neovide")
 endif
 
 " complierun_on_oneclick
-noremap R :call CompileRunGcc()<CR>
+noremap <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
