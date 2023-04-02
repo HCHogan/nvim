@@ -71,6 +71,10 @@ map tn :tabnew<CR>
 map tc :tabclose<CR>
 noremap gt :w<CR>:tabnext<CR>
 noremap gT :w<CR>:tabprev<CR>
+noremap m <Plug>(easymotion-s2)
+nnoremap <c-p> :Files<CR>
+nnoremap <c-g> :Ag<CR>
+nnoremap <LEADER>fu :FzfFunky<CR>
 
 noremap = nzz
 noremap - Nzz
@@ -81,7 +85,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
-nmap tt :CocCommand explorer<CR>
 nmap tt :CocCommand explorer<CR>
 " coc-translator
 nmap ts <Plug>(coc-translator-p)
@@ -120,6 +123,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/tagbar'
 Plug 'hari-rangarajan/CCTree'
 Plug 'github/copilot.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'tracyone/fzf-funky', {'on': 'FzfFunky'}
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 "  coc.nvim
@@ -186,6 +192,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 "  =========
 
 colorscheme catppuccin-mocha
+let g:tokyonight_transparent_background = 1
 let g:lightline = {'colorscheme': 'snazzy', }
 let g:SnazzyTransparent = 1
 
