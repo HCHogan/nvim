@@ -72,8 +72,9 @@ map tc :tabclose<CR>
 noremap gt :w<CR>:tabnext<CR>
 noremap gT :w<CR>:tabprev<CR>
 noremap m <Plug>(easymotion-s2)
+noremap <c-g> <Plug>(coc-terminal-toggle)
 nnoremap <c-p> :Files<CR>
-nnoremap <c-g> :Ag<CR>
+" nnoremap <c-g> :Ag<CR>
 nnoremap <LEADER>fu :FzfFunky<CR>
 
 noremap = nzz
@@ -97,6 +98,12 @@ set shiftwidth=4
 set softtabstop=4 
 set tabstop=4 
 
+" func! s:transparent_background()
+    " highlight Normal guibg=None ctermbg=None
+    " highlight NonText guibg=None ctermbg=None
+" endf
+" autocmd ColorScheme * call s:transparent_background()
+" 
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -174,6 +181,7 @@ let g:coc_global_extensions = ['coc-json',
 	\ 'coc-tsserver',
 	\ 'coc-highlight',
 	\ 'coc-sql',
+	\ 'coc-terminal',
     \ 'coc-explorer']
 
 set updatetime=300

@@ -134,5 +134,10 @@
 	"rust-analyzer.enable": true,
 	"rust-analyzer.server.path": "/usr/bin/rust-analyzer",
 	"suggest.noselect": false,
+	"translator.window.enableBorder": true,
+	"translator.engines": [
+		"youdao",
+	],
+	"sourcekit.commandPath": "/usr/bin/sourcekit-lsp"
 	
 }
