@@ -1,9 +1,15 @@
-" __  ____   __  _   ___     _____ __  __ ____   ____
-"|  \/  \ \ / / | \ | \ \   / /_ _|  \/  |  _ \ / ___|
-"| |\/| |\ V /  |  \| |\ \ / / | || |\/| | |_) | |
-"| |  | | | |   | |\  | \ V /  | || |  | |  _ <| |___
-"|_|  |_| |_|   |_| \_|  \_/  |___|_|  |_|_| \_\\____|
-
+ " _   _  ____ _   _                         _
+" | | | |/ ___| | | | ___   __ _  __ _ _ __ ( )___
+" | |_| | |   | |_| |/ _ \ / _` |/ _` | '_ \|// __|
+" |  _  | |___|  _  | (_) | (_| | (_| | | | | \__ \
+" |_| |_|\____|_| |_|\___/ \__, |\__,_|_| |_| |___/
+"                           |___/
+"  _   ___     _____ __  __ ____   ____
+" | \ | \ \   / /_ _|  \/  |  _ \ / ___|
+" |  \| |\ \ / / | || |\/| | |_) | |
+" | |\  | \ V /  | || |  | |  _ <| |___
+" |_| \_|  \_/  |___|_|  |_|_| \_\\____|
+"
 " Author: @HCHogan
 " ==================== Auto load for first time uses ====================
 " if empty(glob($HOME.'/.config/nvim/autoload/plug.vim'))
@@ -97,6 +103,7 @@ set autoindent
 set shiftwidth=4 
 set softtabstop=4 
 set tabstop=4 
+set scrolloff=5
 
 " func! s:transparent_background()
     " highlight Normal guibg=None ctermbg=None
@@ -133,6 +140,8 @@ Plug 'github/copilot.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tracyone/fzf-funky', {'on': 'FzfFunky'}
 Plug 'Yggdroot/indentLine'
+Plug 'lilydjwg/fcitx.vim'
+Plug 'dart-lang/dart-vim-plugin'
 
 call plug#end()
 "  coc.nvim
@@ -181,6 +190,7 @@ let g:coc_global_extensions = ['coc-json',
 	\ 'coc-tsserver',
 	\ 'coc-highlight',
 	\ 'coc-sql',
+	\ 'coc-flutter',
 	\ 'coc-terminal',
     \ 'coc-explorer']
 
@@ -201,12 +211,12 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 colorscheme catppuccin-mocha
 let g:tokyonight_transparent_background = 1
-let g:lightline = {'colorscheme': 'snazzy', }
+" let g:lightline = {'colorscheme': 'snazzy', }
 let g:SnazzyTransparent = 1
 
 if exists("g:neovide")
 	let g:neovide_cursor_vfx_mode = "pixiedust"
-	set guifont=FiraCode\ Nerd\ Font:h10
+	set guifont=FiraCode\ Nerd\ Font:h9.5
 	" set guifont=FiraCode\ Nerd\ Font:h20
     " Put anything you want to happen only in Neovide here
 endif
