@@ -44,6 +44,62 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      clangd = {
+        capabilities = {
+          offsetEncoding = "utf-8",
+        },
+        cmd = {
+          "/opt/llvm/bin/clangd",
+          "--background-index",
+          "-j=16",
+          "--query-driver=/opt/llvm/bin/clang++",
+          "--clang-tidy",
+          "--clang-tidy-checks=performance-*,bugprone-*,modernize-*,readability-*,portability-*,misc-*",
+          "--all-scopes-completion",
+          "--completion-style=detailed",
+          -- "--header-insertion=iwyu",
+          -- "--pch-storage=disk",
+        },
+      },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev" },
+              extraArgs = { "--profile", "rust-analyzer" },
+            },
+            checkOnSave = {
+              command = "clippy",
+              allTargets = false,
+              extraArgs = { "--no-deps" },
+              allFeatures = true,
+            },
+            -- checkOnSave = false,
+            inlayHints = {
+              reborrowHints = {
+                enable = "mutable",
+              },
+              lifetimeElisionHints = {
+                enable = "skip_trivial",
+              },
+              closureReturnTypeHints = {
+                enable = "with_block",
+              },
+              implicitDrops = {
+                enable = "always",
+              },
+              discriminantHints = {
+                enable = "always",
+              },
+              expressionAdjustmentHints = {
+                enable = "always",
+                hideOutsideUnsafe = false,
+                mode = "prefix",
+              },
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
