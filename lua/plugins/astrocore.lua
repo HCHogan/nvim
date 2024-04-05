@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -35,7 +33,7 @@ return {
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
-        -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
+        -- NOTE: `mapLeader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
@@ -44,6 +42,66 @@ return {
     mappings = {
       -- first key is the mode
       n = {
+        -- tables with the `name` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        ["<Leader>b"] = { name = "Buffers" },
+        ["<Leader>a"] = { name = " Copilot" },
+        ["<Leader>ae"] = { ":Copilot enable<CR>" },
+        ["<Leader>ad"] = { ":Copilot disable<CR>" },
+        ["<Leader>ap"] = { ":Copilot panel<CR>" },
+        ["<Leader>as"] = { ":Copilot suggestion<CR>" },
+        ["<Leader>ac"] = { ":ChatGPT<CR>" },
+        ["<Leader>art"] = { ":ChatGPTRun add_tests<CR>" },
+        ["<Leader>aro"] = { ":ChatGPTRun optimize_code<CR>" },
+        ["<Leader>ars"] = { ":ChatGPTRun summarize<CR>" },
+        ["<Leader>are"] = { ":ChatGPTRun explain_code<CR>" },
+        ["<Leader>arf"] = { ":ChatGPTRun fix_bugs<CR>" },
+        ["<Leader>ard"] = { ":ChatGPTRun docstring<CR>" },
+        -- quick save
+        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        -- CompetiTest bindings
+        ["<Leader>r"] = { name = " CompetiTest" },
+        ["<Leader>rr"] = { ":CompetiTest run<CR>" },
+        ["<Leader>rR"] = { ":CompetiTest run_no_compile<CR>" },
+        ["<Leader>ra"] = { ":CompetiTest add_testcase<CR>" },
+        ["<Leader>re"] = { ":CompetiTest edit_testcase<CR>" },
+        -- java
+        -- ["gd"] = { ":lua vim.lsp.buf.definition()<CR>"},
+        -- ["gD"] = { ":lua vim.lsp.buf.declaration()<CR>"},
+        -- ["gi"] = {":lua vim.lsp.buf.implementation()<CR>"},
+        -- ["gr"] = {":lua vim.lsp.buf.references()<CR>"},
+        -- barbar
+        ["]b"] = { ":BufferNext<CR>" },
+        ["[b"] = { ":BufferPrevious<CR>" },
+        ["<Leader>bp"] = { ":BufferPick<CR>" },
+        -- luasnip
+        ["<M-j>"] = { ":lua require('luasnip').jump(1)<CR>" },
+        ["<M-k>"] = { ":lua require('luasnip').jump(-1)<CR>" },
+        -- my quirks
+        ["J"] = { "5j" },
+        -- ["K"] = { "5k" },
+        ["H"] = { "5h" },
+        ["L"] = { "5l" },
+        [";"] = { ":" },
+        -- ["<F5>"] = { ":let b:caret=winsaveview() <CR> | :%SnipRun <CR>| :call winrestview(b:caret) <CR>" },
+        -- zen_mode
+        ["<Leader>uz"] = { "<cmd>ZenMode<CR>" },
+        -- inlay_hints
+        -- ["<Leader>i"] = { name = "󱠁 Inlay Hints" },
+        -- ["<Leader>ie"] = { "<cmd>lua vim.lsp.inlay_hint(0, true)<CR>" },
+        -- ["<Leader>id"] = { "<cmd>lua vim.lsp.inlay_hint(0, false)<CR>" },
+        -- neovide settings
+        ["<C-N>"] = { ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>" },
+        -- open dashboard when no more buffers
+        -- ["<Leader>c"] = {
+        --   function()
+        --     local bufs = vim.fn.getbufinfo { buflisted = true }
+        --     require("astronvim.utils.buffer").close(0)
+        --     if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
+        --   end,
+        --   desc = "Close buffer",
+        -- },
+
         -- second key is the lefthand side of the map
 
         -- navigate buffer tabs with `H` and `L`
@@ -67,13 +125,18 @@ return {
         },
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
-        ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
       },
       t = {
         -- setting a mapping to false will disable it
         -- ["<esc>"] = false,
+      },
+      v = {
+        ["J"] = { "5j" },
+        ["K"] = { "5k" },
+        ["H"] = { "5h" },
+        ["L"] = { "5l" },
       },
     },
   },
