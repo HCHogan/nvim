@@ -3,6 +3,12 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+-- set vim options here (vim.<first_key>.<second_key> = value)
+local neovide_transparency = 0.75
+local neovide_transparency_point = 0.75
+local alpha = function() return string.format("%x", math.floor((255 * neovide_transparency_point) or 0.8)) end
+local neovide_background_color = "#1E1E2D" .. alpha()
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -15,7 +21,7 @@ return {
       cmp = true, -- enable completion at start
       diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
       highlighturl = true, -- highlight URLs at start
-      notifications = true, -- enable notifications at start
+      notifications = false, -- enable notifications at start
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
@@ -30,11 +36,38 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+        termguicolors = true,
+        scrolloff = 5,
+        sidescrolloff = 5,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapLeader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+
+        -- neovide
+        neovide_input_macos_alt_is_meta = true,
+        neovide_cursor_vfx_mode = "pixiedust",
+        neovide_refresh_rate = 120,
+        neovide_refresh_rate_idle = 120,
+        neovide_floating_shadow = true,
+        neovide_floating_z_height = 10,
+        neovide_light_angle_degrees = 45,
+        neovide_light_radius = 5,
+
+        neovide_transparency = neovide_transparency,
+        neovide_transparency_point = neovide_transparency_point,
+        neovide_background_color = neovide_background_color,
+        neovide_window_blurred = true,
+
+        winblend = 50,
+        pumblend = 50,
+
+        neovide_floating_blur_amount_x = 2.0,
+        neovide_floating_blur_amount_y = 2.0,
+      },
+      o = {
+        guifont = "Recursive:h16",
       },
     },
     -- Mappings can be configured through AstroCore as well.
