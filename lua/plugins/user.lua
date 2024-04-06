@@ -297,33 +297,33 @@ return {
       },
     },
   },
-  {
-    "nvimdev/dyninput.nvim",
-    event = "VeryLazy",
-    config = function()
-      local ms = require "dyninput.lang.misc"
-      local rs = require "dyninput.lang.rust"
-      require("dyninput").setup {
-        c = {
-          ["-"] = {
-            { "->", ms.c_struct_pointer },
-            { "_", ms.snake_case },
-          },
-        },
-        rust = {
-          [";"] = {
-            { "::", rs.double_colon },
-            { ": ", rs.single_colon },
-          },
-          ["="] = { " => ", rs.fat_arrow },
-          ["-"] = {
-            { " -> ", rs.thin_arrow },
-            { "_", ms.snake_case },
-          },
-          ["\\"] = { "|!| {}", rs.closure_fn },
-        },
-      }
-    end,
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-  },
+  -- {
+  --   "nvimdev/dyninput.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     local ms = require "dyninput.lang.misc"
+  --     local rs = require "dyninput.lang.rust"
+  --     require("dyninput").setup {
+  --       c = {
+  --         ["-"] = {
+  --           { "->", ms.c_struct_pointer },
+  --           { "_", ms.snake_case },
+  --         },
+  --       },
+  --       rust = {
+  --         [";"] = {
+  --           { "::", rs.double_colon },
+  --           { ": ", rs.single_colon },
+  --         },
+  --         ["="] = { " => ", rs.fat_arrow },
+  --         ["-"] = {
+  --           { " -> ", rs.thin_arrow },
+  --           { "_", ms.snake_case },
+  --         },
+  --         ["\\"] = { "|!| {}", rs.closure_fn },
+  --       },
+  --     }
+  --   end,
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  -- },
 }

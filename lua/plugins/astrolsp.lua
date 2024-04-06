@@ -12,7 +12,7 @@ return {
     features = {
       autoformat = true, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -58,7 +58,7 @@ return {
           "--all-scopes-completion",
           "--completion-style=detailed",
           -- "--header-insertion=iwyu",
-          -- "--pch-storage=disk",
+          "--pch-storage=disk",
         },
       },
       rust_analyzer = {
@@ -76,26 +76,26 @@ return {
             },
             -- checkOnSave = false,
             inlayHints = {
-              reborrowHints = {
-                enable = "mutable",
-              },
-              lifetimeElisionHints = {
-                enable = "skip_trivial",
-              },
-              closureReturnTypeHints = {
-                enable = "with_block",
-              },
-              implicitDrops = {
-                enable = "always",
-              },
-              discriminantHints = {
-                enable = "always",
-              },
-              expressionAdjustmentHints = {
-                enable = "always",
-                hideOutsideUnsafe = false,
-                mode = "prefix",
-              },
+              -- reborrowHints = {
+              --   enable = "mutable",
+              -- },
+              -- lifetimeElisionHints = {
+              --   enable = "skip_trivial",
+              -- },
+              -- closureReturnTypeHints = {
+              --   enable = "with_block",
+              -- },
+              -- implicitDrops = {
+              --   enable = "always",
+              -- },
+              -- discriminantHints = {
+              --   enable = "always",
+              -- },
+              -- expressionAdjustmentHints = {
+              --   enable = "always",
+              --   hideOutsideUnsafe = false,
+              --   mode = "prefix",
+              -- },
             },
           },
         },
@@ -133,6 +133,16 @@ return {
           desc = "Document Highlighting Clear",
           callback = function() vim.lsp.buf.clear_references() end,
         },
+        -- {
+        --   event = "FileType",
+        --   pattern = "java",
+        --   desc = "Fix java indent",
+        --   callback = function()
+        --     vim.bo.shiftwidth = 4
+        --     vim.bo.tabstop = 4
+        --     vim.bo.softtabstop = 4
+        --   end,
+        -- },
       },
     },
     -- mappings to be set up on attaching of a language server
@@ -145,9 +155,6 @@ return {
           desc = "Declaration of current symbol",
           cond = "textDocument/declaration",
         },
-        ga = {
-          function() vim.cmd.RustLsp "codeAction" end,
-        },
         ["<Leader>uY"] = {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
           desc = "Toggle LSP semantic highlight (buffer)",
@@ -158,6 +165,18 @@ return {
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)
+      -- grouped code actions from rustaceanvim.
+      if client.name == "rust-analyzer" then
+        vim.keymap.set("n", "ga", function() vim.cmd.RustLsp "codeAction" end, { buffer = bufnr })
+      end
+      -- Why astro doesn't have these mappings for jdtls by default?
+      if client.name == "jdtls" then
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = bufnr })
+        vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, { buffer = bufnr })
+        vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, { buffer = bufnr })
+        vim.keymap.set("n", "ga", function() vim.lsp.buf.code_action() end, { buffer = bufnr })
+        vim.keymap.set("n", "<Leader>lr", function() vim.lsp.buf.rename() end, { buffer = bufnr })
+      end
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil
     end,

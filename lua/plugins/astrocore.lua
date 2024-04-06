@@ -98,11 +98,6 @@ return {
         ["<Leader>rR"] = { ":CompetiTest run_no_compile<CR>" },
         ["<Leader>ra"] = { ":CompetiTest add_testcase<CR>" },
         ["<Leader>re"] = { ":CompetiTest edit_testcase<CR>" },
-        -- java
-        -- ["gd"] = { ":lua vim.lsp.buf.definition()<CR>"},
-        -- ["gD"] = { ":lua vim.lsp.buf.declaration()<CR>"},
-        -- ["gi"] = {":lua vim.lsp.buf.implementation()<CR>"},
-        -- ["gr"] = {":lua vim.lsp.buf.references()<CR>"},
         -- barbar
         ["]b"] = { ":BufferNext<CR>" },
         ["[b"] = { ":BufferPrevious<CR>" },
@@ -126,26 +121,16 @@ return {
         -- neovide settings
         ["<C-N>"] = { ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>" },
         -- open dashboard when no more buffers
-        -- ["<Leader>c"] = {
-        --   function()
-        --     local bufs = vim.fn.getbufinfo { buflisted = true }
-        --     require("astronvim.utils.buffer").close(0)
-        --     if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
-        --   end,
-        --   desc = "Close buffer",
-        -- },
-
-        -- second key is the lefthand side of the map
-
-        -- navigate buffer tabs with `H` and `L`
-        -- L = {
-        --   function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-        --   desc = "Next buffer",
-        -- },
-        -- H = {
-        --   function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-        --   desc = "Previous buffer",
-        -- },
+        ["<Leader>c"] = {
+          function()
+            local bufs = vim.fn.getbufinfo { buflisted = true }
+            require("astronvim.utils.buffer").close(0)
+            if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then
+              require("alpha").start(true)
+            end
+          end,
+          desc = "Close buffer",
+        },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
