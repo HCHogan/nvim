@@ -22,6 +22,7 @@ return {
   { import = "astrocommunity.pack.cs" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.zig" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.haskell" },
   { import = "astrocommunity.pack.kotlin" },

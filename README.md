@@ -1,8 +1,8 @@
-# AstroNvim Template
+# Hank's Neovim configuration
 
-**NOTE:** This is for AstroNvim v4+
+My neovim configuration based on [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+Lightweight version(only one .vimrc file with no extra plugin) is in the vimscript folder.
 
 ## 🛠️ Installation
 
