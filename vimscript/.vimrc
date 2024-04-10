@@ -25,6 +25,7 @@ filetype plugin indent on
 set number
 set mouse=a
 set showcmd
+set path+=**
 set wildmenu
 set relativenumber
 set hlsearch
@@ -74,7 +75,6 @@ map <LEADER>ui2 :set tabstop=2<CR>:set softtabstop=2<CR>:set shiftwidth=2<CR>
 
 map [b :tabnext<CR>
 map ]b :tabprev<CR>
-
 
 " ===catppuccin_mocha===
 set background=dark

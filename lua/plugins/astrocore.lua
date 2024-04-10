@@ -121,16 +121,6 @@ return {
         -- neovide settings
         ["<C-N>"] = { ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>" },
         -- open dashboard when no more buffers
-        ["<Leader>c"] = {
-          function()
-            local bufs = vim.fn.getbufinfo { buflisted = true }
-            require("astronvim.utils.buffer").close(0)
-            if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then
-              require("alpha").start(true)
-            end
-          end,
-          desc = "Close buffer",
-        },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
