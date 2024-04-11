@@ -297,6 +297,20 @@ return {
       },
     },
   },
+  {
+    "rcarriga/nvim-notify",
+    enabled = false,
+    event = "VeryLazy",
+    config = function()
+      -- require("notify").setup {
+      --   timeout = 100,
+      --   fps = 120,
+      --   level = "info",
+      --   max_width = 40,
+      --   render = "wrapped-compact",
+      -- }
+    end,
+  },
   -- {
   --   "nvimdev/dyninput.nvim",
   --   event = "VeryLazy",
