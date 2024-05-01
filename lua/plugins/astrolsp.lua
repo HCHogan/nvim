@@ -51,7 +51,7 @@ return {
           offsetEncoding = "utf-8",
         },
         cmd = {
-          "/opt/llvm/bin/clangd",
+          "/opt/homebrew/opt/llvm/bin/clangd",
           "--background-index",
           "-j=16",
           "--query-driver=/opt/llvm/bin/clang++",
