@@ -40,7 +40,7 @@ return {
     servers = {
       -- "pyright"
       "rust_analyzer",
-      "clangd"
+      "clangd",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -76,29 +76,28 @@ return {
               extraArgs = { "--no-deps" },
               allFeatures = true,
             },
-            -- checkOnSave = false,
-            inlayHints = {
-              -- reborrowHints = {
-              --   enable = "mutable",
-              -- },
-              -- lifetimeElisionHints = {
-              --   enable = "skip_trivial",
-              -- },
-              -- closureReturnTypeHints = {
-              --   enable = "with_block",
-              -- },
-              -- implicitDrops = {
-              --   enable = "always",
-              -- },
-              -- discriminantHints = {
-              --   enable = "always",
-              -- },
-              -- expressionAdjustmentHints = {
-              --   enable = "always",
-              --   hideOutsideUnsafe = false,
-              --   mode = "prefix",
-              -- },
-            },
+            -- inlayHints = {
+            -- reborrowHints = {
+            --   enable = "mutable",
+            -- },
+            -- lifetimeElisionHints = {
+            --   enable = "skip_trivial",
+            -- },
+            -- closureReturnTypeHints = {
+            --   enable = "with_block",
+            -- },
+            -- implicitDrops = {
+            --   enable = "always",
+            -- },
+            -- discriminantHints = {
+            --   enable = "always",
+            -- },
+            -- expressionAdjustmentHints = {
+            --   enable = "always",
+            --   hideOutsideUnsafe = false,
+            --   mode = "prefix",
+            -- },
+            -- },
           },
         },
       },
@@ -135,16 +134,6 @@ return {
           desc = "Document Highlighting Clear",
           callback = function() vim.lsp.buf.clear_references() end,
         },
-        -- {
-        --   event = "FileType",
-        --   pattern = "java",
-        --   desc = "Fix java indent",
-        --   callback = function()
-        --     vim.bo.shiftwidth = 4
-        --     vim.bo.tabstop = 4
-        --     vim.bo.softtabstop = 4
-        --   end,
-        -- },
       },
     },
     -- mappings to be set up on attaching of a language server

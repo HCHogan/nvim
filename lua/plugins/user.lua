@@ -227,6 +227,21 @@ return {
     end,
   },
   {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    event = "VeryLazy",
+    branch = "canary",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    opts = {
+      debug = true, -- Enable debugging
+      proxy = "socks5://127.0.0.1:7890",
+      allow_insecure = true,
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+  },
+  {
     "xeluxee/competitest.nvim",
     dependencies = "MunifTanjim/nui.nvim",
     ft = {

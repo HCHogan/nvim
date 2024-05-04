@@ -42,7 +42,7 @@ return {
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   -- { import = "astrocommunity.markdown-and-latex.markmap-nvim" },
   { import = "astrocommunity.editing-support.chatgpt-nvim" },
-  -- { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
+  { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
   -- { import = "astrocommunity.workflow.bad-practices-nvim"},
   -- { import = "astrocommunity.code-runner.sniprun" },
   -- { import = "astrocommunity.code-runner.overseer-nvim"},
