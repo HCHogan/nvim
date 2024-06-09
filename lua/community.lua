@@ -41,7 +41,7 @@ return {
   -- { import = "astrocommunity.markdown-and-latex.markmap-nvim" },
   { import = "astrocommunity.editing-support.chatgpt-nvim" },
   { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
-  -- { import = "astrocommunity.code-runner.sniprun" },
-  -- { import = "astrocommunity.code-runner.overseer-nvim"},
+  -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
+  { import = "astrocommunity.recipes.vscode" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 }
