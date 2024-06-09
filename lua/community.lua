@@ -10,6 +10,7 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.lsp.lspsaga-nvim" },
   -- { import = "astrocommunity.pack.typescript-all-in-one" },
   -- { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.html-css" },

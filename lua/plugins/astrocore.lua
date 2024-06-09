@@ -46,7 +46,7 @@ return {
         -- This can be found in the `lua/lazy_setup.lua` file
 
         -- neovide
-        neovide_input_macos_alt_is_meta = true,
+        neovide_input_macos_option_key_is_meta = "both",
         neovide_cursor_vfx_mode = "pixiedust",
         neovide_refresh_rate = 120,
         neovide_refresh_rate_idle = 120,
@@ -131,6 +131,12 @@ return {
           end,
           desc = "Pick to close",
         },
+        ["<Leader>ts"] = {
+          function()
+            require('haskell-tools').repl.toggle()
+          end,
+          desc = "Run ghci"
+        }
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- quick save

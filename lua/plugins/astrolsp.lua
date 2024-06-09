@@ -39,28 +39,15 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
-      "rust_analyzer",
-      "clangd",
+      -- "rust_analyzer",
+      -- "clangd",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
       clangd = {
         capabilities = {
           offsetEncoding = "utf-8",
-        },
-        cmd = {
-          "/opt/homebrew/opt/llvm/bin/clangd",
-          "--background-index",
-          "-j=16",
-          "--query-driver=/opt/llvm/bin/clang++",
-          "--clang-tidy",
-          "--clang-tidy-checks=performance-*,bugprone-*,modernize-*,readability-*,portability-*,misc-*",
-          "--all-scopes-completion",
-          "--completion-style=detailed",
-          -- "--header-insertion=iwyu",
-          "--pch-storage=disk",
         },
       },
       rust_analyzer = {
