@@ -7,18 +7,6 @@ local leet_arg = "lc"
 ---@type LazySpec
 return {
 
-  -- == Examples of Adding Plugins ==
-
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function() require("lsp_signature").setup() end,
-  -- },
-
-  -- == Examples of Overriding Plugins ==
-
-  -- customize alpha options
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
@@ -133,6 +121,7 @@ return {
           notify = true,
           mason = true,
           which_key = true,
+          lsp_saga = true,
           telescope = {
             enabled = true,
             style = "nvchad",
@@ -152,32 +141,6 @@ return {
         },
       }
     end,
-  },
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    ---@type Flash.Config
-    opts = {},
-    -- stylua: ignore
-    keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
-      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash" },
-      {
-        "R",
-        mode = { "o", "x" },
-        function() require("flash").treesitter_search() end,
-        desc =
-        "Treesitter Search"
-      },
-      {
-        "<c-s>",
-        mode = { "c" },
-        function() require("flash").toggle() end,
-        desc =
-        "Toggle Flash Search"
-      },
-    },
   },
   {
     "zbirenbaum/copilot.lua",
@@ -227,21 +190,6 @@ return {
         server_opts_overrides = {},
       }
     end,
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    event = "VeryLazy",
-    branch = "canary",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    opts = {
-      debug = true, -- Enable debugging
-      proxy = "socks5://127.0.0.1:7890",
-      allow_insecure = true,
-    },
-    -- See Commands section for default commands if you want to lazy load on them
   },
   {
     "xeluxee/competitest.nvim",
@@ -328,33 +276,4 @@ return {
       -- }
     end,
   },
-  -- {
-  --   "nvimdev/dyninput.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     local ms = require "dyninput.lang.misc"
-  --     local rs = require "dyninput.lang.rust"
-  --     require("dyninput").setup {
-  --       c = {
-  --         ["-"] = {
-  --           { "->", ms.c_struct_pointer },
-  --           { "_", ms.snake_case },
-  --         },
-  --       },
-  --       rust = {
-  --         [";"] = {
-  --           { "::", rs.double_colon },
-  --           { ": ", rs.single_colon },
-  --         },
-  --         ["="] = { " => ", rs.fat_arrow },
-  --         ["-"] = {
-  --           { " -> ", rs.thin_arrow },
-  --           { "_", ms.snake_case },
-  --         },
-  --         ["\\"] = { "|!| {}", rs.closure_fn },
-  --       },
-  --     }
-  --   end,
-  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  -- },
 }

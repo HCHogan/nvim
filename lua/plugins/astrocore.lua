@@ -90,8 +90,6 @@ return {
         ["<Leader>are"] = { ":ChatGPTRun explain_code<CR>" },
         ["<Leader>arf"] = { ":ChatGPTRun fix_bugs<CR>" },
         ["<Leader>ard"] = { ":ChatGPTRun docstring<CR>" },
-        -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         -- CompetiTest bindings
         ["<Leader>r"] = { name = " CompetiTest" },
         ["<Leader>rr"] = { ":CompetiTest run<CR>" },
@@ -111,13 +109,8 @@ return {
         ["H"] = { "5h" },
         ["L"] = { "5l" },
         [";"] = { ":" },
-        -- ["<F5>"] = { ":let b:caret=winsaveview() <CR> | :%SnipRun <CR>| :call winrestview(b:caret) <CR>" },
         -- zen_mode
         ["<Leader>uz"] = { "<cmd>ZenMode<CR>" },
-        -- inlay_hints
-        -- ["<Leader>i"] = { name = "󱠁 Inlay Hints" },
-        -- ["<Leader>ie"] = { "<cmd>lua vim.lsp.inlay_hint(0, true)<CR>" },
-        -- ["<Leader>id"] = { "<cmd>lua vim.lsp.inlay_hint(0, false)<CR>" },
         -- neovide settings
         ["<C-N>"] = { ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>" },
         -- open dashboard when no more buffers
