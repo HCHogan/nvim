@@ -175,17 +175,6 @@ return {
             dismiss = "<C-]>",
           },
         },
-        -- filetypes = {
-        --   yaml = true,
-        --   markdown = true,
-        --   help = false,
-        --   gitcommit = true,
-        --   gitrebase = false,
-        --   hgcommit = false,
-        --   svn = false,
-        --   cvs = false,
-        --   ["."] = false,
-        -- },
         copilot_node_command = "node", -- Node.js version must be > 16.x
         server_opts_overrides = {},
       }
@@ -265,15 +254,5 @@ return {
   {
     "rcarriga/nvim-notify",
     enabled = false,
-    event = "VeryLazy",
-    config = function()
-      -- require("notify").setup {
-      --   timeout = 100,
-      --   fps = 120,
-      --   level = "info",
-      --   max_width = 40,
-      --   render = "wrapped-compact",
-      -- }
-    end,
   },
 }
