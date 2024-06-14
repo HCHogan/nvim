@@ -97,9 +97,10 @@ return {
         ["<Leader>ra"] = { ":CompetiTest add_testcase<CR>" },
         ["<Leader>re"] = { ":CompetiTest edit_testcase<CR>" },
         -- barbar
-        ["]b"] = { ":BufferNext<CR>" },
-        ["[b"] = { ":BufferPrevious<CR>" },
-        ["<Leader>bp"] = { ":BufferPick<CR>" },
+        ["]b"] = { "<Cmd>BufferNext<CR>" },
+        ["[b"] = { "<Cmd>BufferPrevious<CR>" },
+        ["<Leader>c"] = { "<Cmd>BufferClose<CR>" },
+        ["<Leader>bp"] = { "<Cmd>BufferPick<CR>" },
         -- luasnip
         ["<M-j>"] = { ":lua require('luasnip').jump(1)<CR>" },
         ["<M-k>"] = { ":lua require('luasnip').jump(-1)<CR>" },
@@ -110,7 +111,7 @@ return {
         ["L"] = { "5l" },
         [";"] = { ":" },
         -- zen_mode
-        ["<Leader>uz"] = { "<cmd>ZenMode<CR>" },
+        ["<Leader>uz"] = { "<Cmd>ZenMode<CR>" },
         -- neovide settings
         ["<C-N>"] = { ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>" },
         -- open dashboard when no more buffers
@@ -125,11 +126,9 @@ return {
           desc = "Pick to close",
         },
         ["<Leader>ts"] = {
-          function()
-            require('haskell-tools').repl.toggle()
-          end,
-          desc = "Run ghci"
-        }
+          function() require("haskell-tools").repl.toggle() end,
+          desc = "Run ghci",
+        },
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- quick save
