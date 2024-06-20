@@ -67,7 +67,7 @@ return {
         neovide_floating_blur_amount_y = 2.0,
       },
       o = {
-        guifont = "Recursive:h16",
+        guifont = "Recursive:h15",
       },
     },
     -- Mappings can be configured through AstroCore as well.
