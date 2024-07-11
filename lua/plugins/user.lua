@@ -173,7 +173,13 @@ return {
   },
   {
     "wojciech-kulik/xcodebuild.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-tree.lua", -- (optional) to manage project files
+      "stevearc/oil.nvim", -- (optional) to manage project files
+      "nvim-treesitter/nvim-treesitter", -- (optional) for Quick tests support (required Swift parser)
+    },
     -- ft = {
     --   "swift",
     --   -- "objcpp",
@@ -181,7 +187,36 @@ return {
     -- },
     event = "BufEnter *.swift",
     config = function()
-      require("astronvim.utils.lsp").setup "sourcekit"
+      local uv = vim.loop
+      -- Function to check if a directory exists
+      local function directory_exists(path)
+        local stat = uv.fs_stat(path)
+        return stat and stat.type == "directory"
+      end
+
+      -- Function to check for .xcodeproj or .xcworkspace directories in the current working directory
+      local function has_xcode_files()
+        local current_dir = uv.cwd()
+        local dir = uv.fs_opendir(current_dir, nil, 100)
+        if dir then
+          while true do
+            local entries = uv.fs_readdir(dir)
+            if not entries then break end
+            for _, entry in ipairs(entries) do
+              if
+                (entry.name:match "%.xcodeproj$" or entry.name:match "%.xcworkspace$") and entry.type == "directory"
+              then
+                uv.fs_closedir(dir)
+                return true
+              end
+            end
+          end
+          uv.fs_closedir(dir)
+        end
+        return false
+      end
+
+      if not has_xcode_files() then return end
       require("xcodebuild").setup()
       vim.keymap.set("n", "<leader>X", "<cmd>XcodebuildPicker<cr>", { desc = "Show Xcodebuild Actions" })
       vim.keymap.set("n", "<leader>xf", "<cmd>XcodebuildProjectManager<cr>", { desc = "Show Project Manager Actions" })

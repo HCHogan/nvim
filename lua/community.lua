@@ -18,6 +18,8 @@ return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.docker" },
+  { import = "astrocommunity.pack.lean" },
+  { import = "astrocommunity.pack.swift" },
   -- { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.cpp" },
   -- { import = "astrocommunity.pack.cs" },
