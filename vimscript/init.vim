@@ -2127,3 +2127,7 @@ augroup custom_haskell_syntax
     autocmd FileType haskell source ~/.config/nvim/vimscript/lang/haskell.vim
 augroup END  
 
+augroup custom_rust_syntax
+    autocmd!
+    autocmd FileType rust source ~/.config/nvim/vimscript/lang/rust.vim
+augroup END
